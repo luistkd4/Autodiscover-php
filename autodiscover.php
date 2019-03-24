@@ -46,7 +46,7 @@ $smtpSSL    = true;
 header( 'Content-Type: application/xml' );
 if (strpos($Rschema, 'mobilesync')){
     $xml = file_get_contents('responsemobile.xml');
-    $zpushHost = "webmail977.umbler.com";
+    $zpushHost = "webmail977";
     $serverUrl = "https://" . $zpushHost . "/Microsoft-Server-ActiveSync";
     $response = new SimpleXMLElement($xml);
     $response->Response->User->DisplayName = $mail;
@@ -56,8 +56,8 @@ if (strpos($Rschema, 'mobilesync')){
     $response = $response->asXML();
     echo $response;
 } elseif(strpos($Rschema, 'outlook')){
-    $xml = file_get_contents('responseoutlook.xml');
-    $zpushHost = "webmail977.umbler.com";
+    $xml = file_get_contents('response-outlook.xml');
+    $zpushHost = "webmail977";
     $serverUrl = "https://" . $zpushHost . "/Microsoft-Server-ActiveSync";
     $response = new SimpleXMLElement($xml);
     $response->Response->User->DisplayName = $mail;
@@ -69,7 +69,7 @@ if (strpos($Rschema, 'mobilesync')){
 }
 else{
     $xml = file_get_contents('responseerror.xml');
-    $zpushHost = "webmail977.umbler.com";
+    $zpushHost = "webmail977";
     $serverUrl = "https://" . $zpushHost . "/Microsoft-Server-ActiveSync";
     $response = new SimpleXMLElement($xml);
     $response->Response->User->DisplayName = $mail;
@@ -80,44 +80,3 @@ else{
     echo $response;       
 }
 ?>
-<?php echo '<?xml version="1.0" encoding="utf-8" ?>'; ?>
-<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-	<Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
-		<Account>
-			<AccountType>email</AccountType>
-			<Action>settings</Action>
-			<Protocol>
-				<Type>POP3</Type>
-				<Server><?php echo $popServer; ?></Server>
-				<Port><?php echo $popPort; ?></Port>
-				<LoginName><?php echo $mail; ?></LoginName>
-				<DomainRequired>off</DomainRequired>
-				<SPA>off</SPA>
-				<SSL><?php echo $popSSL ? 'on' : 'off'; ?></SSL>
-				<DomainRequired>off</DomainRequired>
-			</Protocol>
-			<Protocol>
-				<Type>IMAP</Type>
-				<Server><?php echo $imapServer; ?></Server>
-				<Port><?php echo $imapPort; ?></Port>
-				<DomainRequired>off</DomainRequired>
-				<LoginName><?php echo $mail; ?></LoginName>
-				<SPA>off</SPA>
-				<SSL><?php echo $imapSSL ? 'on' : 'off'; ?></SSL>
-				<AuthRequired>on</AuthRequired>
-			</Protocol>
-			<Protocol>
-				<Type>SMTP</Type>
-				<Server><?php echo $smtpServer; ?></Server>
-				<Port><?php echo $smtpPort; ?></Port>
-				<DomainRequired>off</DomainRequired>
-				<LoginName><?php echo $mail; ?></LoginName>
-				<SPA>off</SPA>
-				<SSL><?php echo $smtpSSL ? 'on' : 'off'; ?></SSL>
-				<AuthRequired>on</AuthRequired>
-				<UsePOPAuth>on</UsePOPAuth>
-				<SMTPLast>on</SMTPLast>
-			</Protocol>
-		</Account>
-	</Response>
-</Autodiscover>
