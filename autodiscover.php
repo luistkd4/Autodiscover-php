@@ -78,6 +78,7 @@ if (strpos($Rschema, 'mobilesync')){
     $response->Response->Account->Protocol[2]->SSL = $smtpSSL;
     $response = $response->asXML();
     echo $response;
+    echo "a"
 }
 else{
     $xml = file_get_contents('responseerror.xml');
