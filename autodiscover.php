@@ -46,7 +46,7 @@ $smtpSSL    = "true";
 header( 'Content-Type: application/xml' );
 if (strpos($Rschema, 'mobilesync')){
     $xml = file_get_contents('responsemobile.xml');
-    $mailServer = "webmail977";
+    $mailServer = "webmail977.umbler.com";
     $serverUrl = "https://" . $mailServer . "/Microsoft-Server-ActiveSync";
     $response = new SimpleXMLElement($xml);
     $response->Response->User->DisplayName = $mail;
@@ -78,7 +78,6 @@ if (strpos($Rschema, 'mobilesync')){
     $response->Response->Account->Protocol[2]->SSL = $smtpSSL;
     $response = $response->asXML();
     echo $response;
-    echo "a"
 }
 else{
     $xml = file_get_contents('responseerror.xml');

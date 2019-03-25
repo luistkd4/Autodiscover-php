@@ -1,4 +1,4 @@
-<?php echo '<?xml version="1.0" encoding="utf-8" ?>'; ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 	<Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
 		<Account>
@@ -6,32 +6,32 @@
 			<Action>settings</Action>
 			<Protocol>
 				<Type>POP3</Type>
-				<Server><?php echo $popServer; ?></Server>
-				<Port><?php echo $popPort; ?></Port>
-				<LoginName><?php echo $mail; ?></LoginName>
+				<Server></Server>
+				<Port></Port>
+				<LoginName></LoginName>
 				<DomainRequired>off</DomainRequired>
 				<SPA>off</SPA>
-				<SSL><?php echo $popSSL ? 'on' : 'off'; ?></SSL>
+				<SSL></SSL>
 				<DomainRequired>off</DomainRequired>
 			</Protocol>
 			<Protocol>
 				<Type>IMAP</Type>
-				<Server><?php echo $imapServer; ?></Server>
-				<Port><?php echo $imapPort; ?></Port>
+				<Server></Server>
+				<Port></Port>
 				<DomainRequired>off</DomainRequired>
-				<LoginName><?php echo $mail; ?></LoginName>
+				<LoginName></LoginName>
 				<SPA>off</SPA>
-				<SSL><?php echo $imapSSL ? 'on' : 'off'; ?></SSL>
+				<SSL></SSL>
 				<AuthRequired>on</AuthRequired>
 			</Protocol>
 			<Protocol>
 				<Type>SMTP</Type>
-				<Server><?php echo $smtpServer; ?></Server>
-				<Port><?php echo $smtpPort; ?></Port>
+				<Server></Server>
+				<Port></Port>
 				<DomainRequired>off</DomainRequired>
-				<LoginName><?php echo $mail; ?></LoginName>
+				<LoginName></LoginName>
 				<SPA>off</SPA>
-				<SSL><?php echo $smtpSSL ? 'on' : 'off'; ?></SSL>
+				<SSL></SSL>
 				<AuthRequired>on</AuthRequired>
 				<UsePOPAuth>on</UsePOPAuth>
 				<SMTPLast>on</SMTPLast>
